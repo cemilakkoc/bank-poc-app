@@ -17,6 +17,11 @@ RUN pip install --no-cache-dir flask transformers torch accelerate sentence-tran
 ARG HUGGINGFACE_TOKEN
 RUN huggingface-cli login --token ${HUGGINGFACE_TOKEN}
 
+# Download the model
+RUN mkdir -p /models && \
+    git lfs install && \
+    git clone https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct /models/meta-llama-3-70B-Instruct
+
 # Copy the Flask application code
 COPY . .
 
