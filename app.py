@@ -149,7 +149,7 @@ def ask_llm(query, k=10):
         max_new_tokens=256,
         eos_token_id=terminators,
         do_sample=True,
-        temperature=0,
+        temperature=0.1,
         top_p=0.9,
     )
 
